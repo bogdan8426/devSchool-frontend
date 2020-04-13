@@ -1,0 +1,36 @@
+html{
+    height: 100%;
+    letter-spacing: 0.5px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: #2B2B2B;
+    font-variant-caps: all-small-caps;
+    background: #C6A47E;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li{
+    margin-bottom: 1.2rem;
+}
+
+#form-add > input{
+    margin-right: 1rem;
+    border-radius: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+button {
+    background-color: #C6A47E;
+    font-variant-caps: all-small-caps;
+    padding: 1rem;
+    border-radius: 3rem;
+    border: none;
+
+}
