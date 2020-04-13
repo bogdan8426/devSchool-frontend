@@ -1,0 +1,54 @@
+h1 {
+    color: red;
+}
+
+.first{
+    font-size: x-large;
+}
+
+.other{
+    font-size: medium;
+}
+
+ul li:first-child {
+    font-size: large;
+}
+
+a:visited{
+    color: deeppink;
+}
+
+a:hover{
+    font-size: x-large;
+}
+
+a:active{
+    color: aqua;
+}
+
+#hide{
+    display: none;
+    background-color: pink;
+    padding: 20px;
+}
+
+div#magic:hover p#hide{
+    display: block;
+}
+
+ul li:nth-child(1)::first-letter{
+    color:blueviolet;
+    font-size: xx-large;
+}
+
+p, li {
+    font-family: "Comic Sans MS";
+}
+
+html {
+    font-size: 20px;
+}
+
+#remexample {
+    font-size: 3rem;
+}
