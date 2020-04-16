@@ -1,31 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Contact management</title>
-        <script type="module">
-            import { init } from './index.js';
-            init(); 
-        </script>
-        <link rel="stylesheet" type="text/css" href="styles.css"> 
-    </head> 
+  <head>
+    <meta charset="UTF-8" />
+    <title>Contact management</title>
+    <script type="module">
+      import { init } from './index.js';
+      init();
+    </script>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
 
-    <body>
-        <h1>My contacts</h1>
+  <body>
+    <h1>My contacts</h1>
 
-        <form id="form-add">
-            <input type="text" name="name" id="name" placeholder="Name">
-            <input type="email" name="email" id="email" placeholder="Email">
-            <input type="tel" name="phone" id="phone" placeholder="Phone number">
+    <form id="form-add">
+      <input type="text" name="name" id="name" placeholder="Name" />
+      <input type="email" name="email" id="email" placeholder="Email" />
+      <input type="tel" name="phone" id="phone" placeholder="Phone number" />
 
-            <button type="submit">Add</button>
-        </form> 
+      <button type="submit">Add</button>
+    </form>
 
-        <form id="form-delete" >
-            <ul id="list"></ul>
-            <button id="delete-button" type="submit" hidden>Delete selected contacts</button>
-        </form>
-
-        
-    </body>
+    <form id="form-delete">
+      <ul id="list"></ul>
+      <button id="delete-button" type="submit" hidden>Delete selected contacts</button>
+    </form>
+  </body>
 </html>
