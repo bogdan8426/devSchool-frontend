@@ -1,0 +1,6 @@
+li > label > input {
+  border: 0px;
+  cursor: auto;
+  outline: none;
+  margin: 0.5rem 0rem;
+}
