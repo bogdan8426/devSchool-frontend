@@ -17,7 +17,7 @@ export function append(todo) {
 export function remove(todo) {
   const todos = read();
   const index = todos.findIndex(element => element.id === todo.id);
-  if (index != -1) {
+  if (index !== -1) {
     todos.splice(index, 1);
     write(todos);
   }

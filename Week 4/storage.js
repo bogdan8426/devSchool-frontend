@@ -17,7 +17,7 @@ export function append(contact) {
 export function remove(contact) {
   const contacts = read();
   const index = contacts.findIndex(element => element.id === contact.id);
-  if (index != -1) {
+  if (index !== -1) {
     contacts.splice(index, 1);
     write(contacts);
   }
