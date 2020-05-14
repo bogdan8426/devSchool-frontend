@@ -41,7 +41,8 @@ export class TodoList extends LitElement {
         border-style: solid;
         border-color: #c6a47e;
         position: fixed;
-        right: 100px;
+        right: 4.5rem;
+        top: 31rem;
       }
     `;
   }

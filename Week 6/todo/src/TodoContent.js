@@ -4,7 +4,7 @@ import './TodoList';
 import './TodoInputForm';
 import { read } from './storage';
 
-export class AppContent extends LitElement {
+export class TodoContent extends LitElement {
   constructor() {
     super();
     this.todos = read();
@@ -29,4 +29,4 @@ export class AppContent extends LitElement {
   }
 }
 
-window.customElements.define('app-content', AppContent);
+window.customElements.define('todo-content', TodoContent);

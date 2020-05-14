@@ -12,5 +12,6 @@ module.exports = {
 
   devServer: {
     writeToDisk: true,
+    https: true,
   },
 };

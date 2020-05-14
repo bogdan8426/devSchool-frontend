@@ -1,6 +1,8 @@
 import { LitElement, html, css } from 'lit-element';
 
-export class AppHeader extends LitElement {
+import './TodoLocation';
+
+export class TodoHeader extends LitElement {
   static get styles() {
     return css`
       header {
@@ -21,9 +23,10 @@ export class AppHeader extends LitElement {
     return html`
       <header>
         <h1>Todo list</h1>
+        <todo-location></todo-location>
       </header>
     `;
   }
 }
 
-window.customElements.define('app-header', AppHeader);
+window.customElements.define('todo-header', TodoHeader);
