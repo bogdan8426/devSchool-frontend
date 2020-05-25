@@ -24,12 +24,17 @@ export class Dashboard extends LitElement {
 
     const badge = this.shadowRoot.getElementById('badge');
     const notificationButton = this.shadowRoot.getElementById('notificationButton');
-    if (this.notifications.length > 0) {
-      badge.hidden = false;
-      notificationButton.disabled = false;
-    } else {
-      badge.hidden = true;
-      notificationButton.disabled = true;
+    if (badge && notificationButton) {
+      if (this.notifications.length > 0) {
+        badge.hidden = false;
+        notificationButton.disabled = false;
+      } else {
+        badge.hidden = true;
+        notificationButton.disabled = true;
+      }
+      if (this.notifications.length < 1) {
+        this.shadowRoot.getElementById('notificationsList').hidden = true;
+      }
     }
   }
 
@@ -44,13 +49,16 @@ export class Dashboard extends LitElement {
 
   render() {
     return html`
-      <div>
+      <section>
         ${this._pageTemplate}
-      </div>
+      </section>
     `;
   }
 
   get _pageTemplate() {
+    if (this.page === '') {
+      return html`<ba-welcome></ba-welcome>`;
+    }
     if (this.page === 'transactions') {
       return html`<ba-view-transactions></ba-view-transactions>`;
     }
@@ -104,12 +112,23 @@ export class Dashboard extends LitElement {
 
       <main>
         <h2>Current balance: $${this.balance}</h2>
-        <img src="./src/assets/transaction.png" />
-        <img src="./src/assets/send.png" />
-        <img src="./src/assets/request.png" />
-        <button @click=${this._onChangeMenu} value="transactions">View transactions</button>
-        <button @click=${this._onChangeMenu} value="transactions/send">Send money</button>
-        <button @click=${this._onChangeMenu} value="transactions/request">Request money</button>
+        
+        
+        
+        <button @click=${this._onChangeMenu} value="transactions">
+          <img src="./src/assets/transaction.png" />
+          <p>View transactions</p>
+        </button>
+
+        <button @click=${this._onChangeMenu} value="transactions/send">
+          <img src="./src/assets/send.png" />
+          <p>Send money</p>
+        </button>
+
+        <button @click=${this._onChangeMenu} value="transactions/request">
+          <img src="./src/assets/request.png" />
+          <p>Request money</p>
+        </button>
       </main>
       `;
     }
@@ -130,9 +149,6 @@ export class Dashboard extends LitElement {
     };
     postNotification(notification);
     this._init();
-    if (this.notifications.length < 1) {
-      this.shadowRoot.getElementById('notificationsList').hidden = true;
-    }
   }
 
   _notificationsClicked() {
@@ -141,10 +157,9 @@ export class Dashboard extends LitElement {
   }
 
   _onChangeMenu(event) {
-    window.location.hash = event.target.value;
-    if (event.target.value === '') {
+    window.location.hash = event.currentTarget.value;
+    if (event.currentTarget.value === '') {
       clear();
-      window.location.reload(false);
     }
   }
 
@@ -242,6 +257,7 @@ export class Dashboard extends LitElement {
         padding: 1rem;
         font-size: 1rem;
         letter-spacing: 0.5px;
+        margin-bottom: 2rem;
       }
 
       main > button {
@@ -251,16 +267,23 @@ export class Dashboard extends LitElement {
         text-transform: uppercase;
         font-weight: bold;
         padding: 0.6rem 1.5rem;
-        margin: 1rem 0.5rem;
+        margin: 1rem 1rem;
         margin-top: 0rem;
         border-radius: 0.5rem;
         border-style: solid;
         border-color: rgb(105, 105, 105);
       }
 
-      main > img {
-        width: 10rem;
-        height: 10rem;
+      main > button:hover {
+        display: inline-block;
+        background-color: rgb(120, 120, 120);
+        color: rgb(255, 255, 255);
+        border-color: rgb(120, 120, 120);
+      }
+
+      button > img {
+        width: 6rem;
+        height: 6rem;
         margin: 1rem;
         margin-bottom: 0rem;
       }
@@ -272,7 +295,7 @@ export class Dashboard extends LitElement {
         background: rgb(255, 98, 0);
         box-shadow: 3px 3px 10px 2px rgba(0, 0, 0, 0.6);
         padding: 1rem;
-        position: fixed;
+        position: absolute;
       }
       li {
         display: flex;

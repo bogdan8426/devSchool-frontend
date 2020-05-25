@@ -18,9 +18,9 @@ export class BaWelcome extends LitElement {
 
   render() {
     return html`
-      <main @back=${this._onBack}>
+      <section @back=${this._onBack}>
         ${this._pageTemplate}
-      </main>
+      </section>
     `;
   }
 
@@ -56,14 +56,6 @@ export class BaWelcome extends LitElement {
 
   static get styles() {
     return css`
-      main {
-        text-align: center;
-        color: rgb(51, 51, 51);
-        margin: 3rem 7.5rem;
-        margin-bottom: 2rem;
-        padding: 1rem;
-      }
-
       button {
         display: inline-block;
         background-color: rgb(255, 98, 0);

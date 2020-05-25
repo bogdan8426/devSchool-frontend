@@ -10,7 +10,7 @@ export class RequestMoney extends LitElement {
         <h1>Send request money notification</h1>
         <form @submit=${this._onSubmitTransaction}>
           Amount:
-          <input type="number" placeholder="Amount" name="amount" required />
+          <input type="number" placeholder="Amount" name="amount" required min="0" />
           Destination email:
           <input type="email" placeholder="Destination email" name="destination" required />
 
